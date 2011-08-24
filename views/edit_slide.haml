@@ -1,3 +1,4 @@
+%h2 Edit Slide
 %form{:action=>'/pres/slide/edit', :method => 'POST'}
   %input{:type=>'hidden', :name=>'slide', :value=>params[:id]}
   %textarea{:name=>'content'}= @slide.content

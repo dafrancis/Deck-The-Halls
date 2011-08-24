@@ -1,10 +1,13 @@
-#title
-  %h1 Deck The Halls
-  %h2 Sinatra Presentation Software
 #new_presentation
+  %h2 New Presentation
   = haml :"_newform"
 #old_presentation
+  %h2 Saved Presentations
   -Presentation.all.each do |pres|
     .presentation
       %h3
         %a{:href=>"/pres/#{pres.id}"}= pres.title
+      .box
+      %form{:method=>'POST',:action=>"/pres/#{pres.id}"}
+        %input{:type=>'hidden',:name=>'_method',:value=>'delete'}
+        %input{:type=>'submit',:value=>'Delete',:class=>'right'}

@@ -3,5 +3,14 @@
   %head
     %meta{:charset=>'utf-8'}
     %title Deck The Halls - Sinatra Presentation Software
+    %link{:href=>'/main.css',:rel=>'stylesheet',:text=>'text/css'}
   %body
-    = yield
+    %header
+      #headercontainer
+        %h1
+          %a{:href=>"/"} Deck The Halls
+        %br
+        %p Sinatra Presentation Software
+    %section#contentcontainer
+      %section#content
+        = yield

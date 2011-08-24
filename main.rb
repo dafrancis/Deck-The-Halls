@@ -49,6 +49,13 @@ class DeckTheHalls < Sinatra::Base
     haml :edit_slide
   end
   
+  delete '/pres/slide/:id' do
+    slide = Slide.first(:id => params[:id])
+    pres = slide.presentation
+    slide.destroy
+    redirect "/pres/#{pres}"
+  end
+  
   get '/pres/view/:id' do
     @presentation = Presentation.get(params[:id])
     erb :presentation
@@ -57,5 +64,11 @@ class DeckTheHalls < Sinatra::Base
   get '/pres/:id' do
     @presentation = Presentation.get(params[:id])
     haml :presentation
+  end
+  
+  delete '/pres/:id' do
+    pres = Presentation.get(params[:id])
+    pres.destroy
+    redirect "/"
   end
 end
