@@ -21,4 +21,14 @@ class DeckTheHalls < Sinatra::Base
   get '/' do
     haml :index
   end
+  
+  post '/new' do
+    presentation = Presentation.create(params[:presentation])
+    redirect "/pres/#{presentation.id}"
+  end
+  
+  get '/pres/:id' do
+    @presentation = Presentation.get(params[:id])
+    haml :presentation
+  end
 end
