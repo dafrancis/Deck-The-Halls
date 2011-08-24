@@ -1,3 +1,11 @@
 %h2= @presentation.title
+%p
+  %a{:href=>"/pres/slide/new/#{@presentation.id}"} New Slide
+%p
+  %a{:href=>"/pres/view/#{@presentation.id}"} View Presentation
 %p= @presentation.style
 %p= @presentation.transition
+%ul
+  -@presentation.slides.each do |slide|
+    %li
+      %a{:href=>"/pres/slide/#{slide.id}"} Slide

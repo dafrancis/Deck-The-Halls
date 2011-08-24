@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'haml'
 require 'data_mapper'
+require 'rdiscount'
 
 class DeckTheHalls < Sinatra::Base
   # Load Helpers
@@ -25,6 +26,32 @@ class DeckTheHalls < Sinatra::Base
   post '/new' do
     presentation = Presentation.create(params[:presentation])
     redirect "/pres/#{presentation.id}"
+  end  
+  
+  get '/pres/slide/new/:id' do
+    haml :new_slide
+  end
+  
+  post '/pres/slide/new' do
+    slide = Presentation.get(params[:pres]).slides.create(params[:slide])
+    redirect "/pres/#{params[:pres]}"
+  end
+  
+  post '/pres/slide/edit' do
+    slide = Slide.first(:id => params[:slide])
+    slide.content = params[:content]
+    slide.save
+    redirect "/pres/#{slide.presentation.id}"
+  end
+  
+  get '/pres/slide/:id' do
+    @slide = Slide.first(:id => params[:id])
+    haml :edit_slide
+  end
+  
+  get '/pres/view/:id' do
+    @presentation = Presentation.get(params[:id])
+    erb :presentation
   end
   
   get '/pres/:id' do
