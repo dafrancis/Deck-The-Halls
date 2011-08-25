@@ -1,5 +1,5 @@
 # Deck The Halls
-![Logo](i.imgur.com/K4V2C.png)
+![Logo](http://i.imgur.com/K4V2C.png)
 
 ## What is this?
 A front end to easily create presentations using [deck.js](http://imakewebthings.github.com/deck.js/). 
