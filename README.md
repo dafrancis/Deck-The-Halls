@@ -32,6 +32,6 @@ content.
 
 ## Project Info
 
-Deck The Halls is hosted on github https://github.com/dafrancis/DeckTheHalls, where your contributions, forkings and feedback are greatly welcomed.
+Deck The Halls is hosted on github https://github.com/dafrancis/Deck-The-Halls, where your contributions, forkings and feedback are greatly welcomed.
 
 Copyright &copy; 2011 Dafydd Francis, released under the [MIT](http://en.wikipedia.org/wiki/MIT_License) license.
