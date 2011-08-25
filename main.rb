@@ -24,7 +24,7 @@ class DeckTheHalls < Sinatra::Base
   end
   
   post '/new' do
-    presentation = Presentation.create(params[:presentation])
+    presentation = Presentation.create!(params[:presentation])
     redirect "/pres/#{presentation.id}"
   end  
   

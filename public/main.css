@@ -149,5 +149,5 @@ footer ul li img { vertical-align: bottom; position: relative; top: 2px; }
 
 .right{float:right;margin-top:75px;}
 .slide .box{width:300px;height:150px;border:solid 1px;display:block;float:left;margin:25px;}
-.presentation .box{width:600px;height:300px;border:solid 1px;display:block;float:left;margin:25px;}
+.presentation .box{width:400px;height:250px;border:solid 1px;display:block;float:left;margin:25px;}
 .clear{clear:both;}

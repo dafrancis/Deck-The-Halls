@@ -10,6 +10,6 @@
       %form{:method=>'POST',:action=>"/pres/slide/#{slide.id}",:class=>'right'}
         %input{:type=>'hidden',:name=>'_method',:value=>'delete'}
         %input{:type=>'submit',:value=>'Delete'}
-.clear
+    .clear
 %p
   %a{:href=>"/pres/slide/new/#{@presentation.id}"} New Slide
