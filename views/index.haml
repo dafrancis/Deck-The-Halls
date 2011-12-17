@@ -1,14 +1,16 @@
 #new_presentation
-  %h2 New Presentation
+  .page-header
+    %h2 New Presentation
   = haml :"_newform"
 #old_presentation
-  %h2 Saved Presentations
-  -Presentation.all.each do |pres|
-    .presentation
-      %h3
-        %a{:href=>"/pres/#{pres.id}"}= pres.title
-      .box
-      %form{:method=>'POST',:action=>"/pres/#{pres.id}"}
-        %input{:type=>'hidden',:name=>'_method',:value=>'delete'}
-        %input{:type=>'submit',:value=>'Delete',:class=>'right'}
-    .clear
+  .page-header
+    %h2 Saved Presentations
+    -Presentation.all.each do |pres|
+      .presentation.row
+        .span8
+          %h3
+            %a{:href=>"/pres/#{pres.id}"}= pres.title
+        .span8
+          %form{:method=>'POST',:action=>"/pres/#{pres.id}"}
+            %input{:type=>'hidden',:name=>'_method',:value=>'delete'}
+            %input{:type=>'submit',:value=>'Delete',:class=>'right'}

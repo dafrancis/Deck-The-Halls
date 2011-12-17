@@ -1,15 +1,18 @@
-%h2= @presentation.title
-%p
-  %a{:href=>"/pres/view/#{@presentation.id}"} View Presentation
+.page-header
+  %h2= @presentation.title
+  %p
+    %a{:href=>"/pres/view/#{@presentation.id}"} View Presentation
 #slides
   -@presentation.slides.each do |slide|
-    .slide
-      .box
-        %h3
-          %a{:href=>"/pres/slide/#{slide.id}"} Slide
-      %form{:method=>'POST',:action=>"/pres/slide/#{slide.id}",:class=>'right'}
-        %input{:type=>'hidden',:name=>'_method',:value=>'delete'}
-        %input{:type=>'submit',:value=>'Delete'}
-    .clear
+    .row
+      .span10
+        .box=slide.content
+      .span3
+        %form{:method=>'GET',:action=>"/pres/slide/#{slide.id}",:class=>'right'}
+          %input{:type=>'submit',:value=>'Edit'}
+      .span3
+        %form{:method=>'POST',:action=>"/pres/slide/#{slide.id}",:class=>'right'}
+          %input{:type=>'hidden',:name=>'_method',:value=>'delete'}
+          %input{:type=>'submit',:value=>'Delete'}
 %p
   %a{:href=>"/pres/slide/new/#{@presentation.id}"} New Slide

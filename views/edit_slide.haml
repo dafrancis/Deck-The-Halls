@@ -1,5 +1,5 @@
 %h2 Edit Slide
 %form{:action=>'/pres/slide/edit', :method => 'POST'}
   %input{:type=>'hidden', :name=>'slide', :value=>params[:id]}
-  %textarea{:name=>'content'}= @slide.content
+  %textarea{:name=>'content',:cols=>'200',:rows=>'8'}= @slide.content
   %input{:type=>'submit',:value=>'Save'}

@@ -3,14 +3,15 @@
   %head
     %meta{:charset=>'utf-8'}
     %title Deck The Halls - Sinatra Presentation Software
-    %link{:href=>'/main.css',:rel=>'stylesheet',:text=>'text/css'}
+    %link{:rel=>"stylesheet", :href=>"http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css"}
+    %style .pusher{display:block;height:100px;}
   %body
-    %header
-      #headercontainer
-        %h1
-          %a{:href=>"/"} Deck The Halls
-        %br
-        %p Sinatra Presentation Software
-    %section#contentcontainer
-      %section#content
-        = yield
+    .topbar
+      .topbar-inner
+        .container
+          %h1
+            %a{:href=>"/"} Deck The Halls
+            %small Sinatra Presentation Software
+    .pusher
+    .container
+      = yield
