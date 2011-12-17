@@ -9,6 +9,11 @@ class DeckTheHalls < Sinatra::Base
     require file
     helpers Kernel.const_get(file.gsub(%r{(./helpers/|.rb)},'').capitalize)
   end
+
+  helpers do
+    include Rack::Utils
+    alias_method :h, :escape_html
+  end
   
   # Load Models
   DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite:data")
