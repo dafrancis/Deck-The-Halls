@@ -9,10 +9,10 @@
         %pre.box=h slide.content
       .span3
         %form{:method=>'GET',:action=>"/pres/slide/#{slide.id}",:class=>'right'}
-          %input{:type=>'submit',:value=>'Edit'}
+          %input.btn{:type=>'submit',:value=>'Edit'}
       .span3
         %form{:method=>'POST',:action=>"/pres/slide/#{slide.id}",:class=>'right'}
           %input{:type=>'hidden',:name=>'_method',:value=>'delete'}
-          %input{:type=>'submit',:value=>'Delete'}
+          %input.btn{:type=>'submit',:value=>'Delete'}
 %p
   %a{:href=>"/pres/slide/new/#{@presentation.id}"} New Slide

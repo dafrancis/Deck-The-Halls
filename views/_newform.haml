@@ -1,5 +1,5 @@
 %form{:method=>'POST', :action=>'/new'}
-  %label{:for=>'pres_title'} Title
+  %label{:for=>'pres_title'} Title:&nbsp;
   %input{:type => 'text', :name => 'presentation[title]', :id=>'pres_title'}
   %select{:name => 'presentation[style]'}
     -Dir["./public/themes/style/*.css"].each do |file|
@@ -9,4 +9,4 @@
     -Dir["./public/themes/transition/*.css"].each do |file|
       -file = file.gsub(%r{(./public/themes/transition/|.css)},'')
       %option{:value=>file}= file.capitalize
-  %input{:type => 'submit', :value => 'New Presentation'}
+  %input.btn{:type => 'submit', :value => 'New Presentation'}

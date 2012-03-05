@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/reloader'
 require 'haml'
 require 'data_mapper'
 require 'rdiscount'
 
 class DeckTheHalls < Sinatra::Base
+  use Rack::MethodOverride
   # Load Helpers
   Dir["./helpers/*.rb"].each do |file|
     require file
@@ -22,7 +24,7 @@ class DeckTheHalls < Sinatra::Base
   DataMapper.auto_upgrade!
 
   enable :sessions
-  set :public, './public'
+  set :public_folder, './public'
 
   get '/' do
     haml :index
@@ -58,7 +60,7 @@ class DeckTheHalls < Sinatra::Base
     slide = Slide.first(:id => params[:id])
     pres = slide.presentation
     slide.destroy
-    redirect "/pres/#{pres}"
+    redirect "/pres/#{pres.id}"
   end
   
   get '/pres/view/:id' do
@@ -73,7 +75,7 @@ class DeckTheHalls < Sinatra::Base
   
   delete '/pres/:id' do
     pres = Presentation.get(params[:id])
-    pres.destroy
+    pres.destroy!
     redirect "/"
   end
 end

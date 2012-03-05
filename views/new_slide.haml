@@ -2,4 +2,4 @@
 %form{:action=>'/pres/slide/new', :method => 'POST'}
   %input{:type=>'hidden', :name=>'pres', :value=>params[:id]}
   %textarea{:name=>'slide[content]',:cols=>'200',:rows=>'8'}
-  %input{:type=>'submit',:value=>'Save'}
+  %input.btn{:type=>'submit',:value=>'Save'}
